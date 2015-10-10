@@ -200,3 +200,4 @@ ja:
       email: メールアドレス
       password: パスワード
       password_digest: パスワード
+      password_confirmation: パスワード
