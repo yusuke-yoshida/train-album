@@ -1,0 +1,8 @@
+<% photos.each do |photo| %>
+    <div>
+        <img src=<%= "#{photo.thumbnail_url}" %>>
+        <div class="action">
+            <%= render 'photos/action', photo: photo if logged_in? %>
+        </div>
+    </div>
+<% end %>

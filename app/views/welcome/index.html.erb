@@ -2,8 +2,4 @@
 <p>
     <%= link_to "写真をさがす", new_photo_path %>
 </p>
-<% @photos.each do |photo| %>
-    <p>
-        <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_m.jpg" %>>
-    </p>
-<% end %>
+<%= render 'photos/list', photos: @photos %>
