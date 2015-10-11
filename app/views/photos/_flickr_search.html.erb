@@ -1,3 +1,5 @@
 <% @photos.each do |photo| %>
-    <%= photo.get("http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_m.jpg") %>
+    <p>
+        <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_m.jpg" %>>
+    </p>
 <% end %>

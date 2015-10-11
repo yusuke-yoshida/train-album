@@ -1,0 +1,16 @@
+<div class="search">
+  <%= form_tag new_photo_path , method: :get do %>
+    <%= text_field_tag :q , params[:q], placeholder: "キーワードを入れましょう", required: true %>
+    <%= submit_tag "写真をさがす", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
+  <% end %>
+</div>
+<div class="search-result">
+  <% if @photos.present? %>
+    <%= render 'flickr_search' , photos: @photos %>
+  <% elsif params[:q].present? %>
+    <div class="alert alert-danger">
+      <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+      検索したキーワードの写真はありませんでした。
+    </div>
+  <% end %>
+</div>
