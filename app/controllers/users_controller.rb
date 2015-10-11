@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
   
   def new
     @user = User.new
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @photos = @user.favorite_photos.group('photos.id')
   end
   
   def edit
