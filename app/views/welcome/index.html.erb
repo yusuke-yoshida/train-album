@@ -1,2 +1,6 @@
 <h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% @photos.each do |photo| %>
+    <p>
+        <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_m.jpg" %>>
+    </p>
+<% end %>
