@@ -1,0 +1,7 @@
+<div class="action">
+    <% if current_user.favoriting? photo %>
+    <%= render 'photos/unfavorite' , photo: photo %>
+<% else %>
+    <%= render 'photos/favorite' , photo: photo %>
+<% end %>
+</div>

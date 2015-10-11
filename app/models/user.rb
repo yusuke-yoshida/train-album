@@ -7,5 +7,22 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
     has_secure_password
     
-    has_many :photos
+    has_many :favorites, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
+    has_many :favorite_photos, through: :favorites, source: :photo
+    
+    # 写真をお気に入りする
+    def favorite(photo)
+        favorites.find_or_create_by(photo_id: photo.id)
+    end
+    
+    # お気に入りを解除する
+    def unfavorite(photo)
+        favorites.find_by(photo_id: photo.id).destroy
+    end
+    
+    # ある写真をお気に入りしているかどうか？
+    def favoriting?(photo)
+        favorite_photos.include?(photo)
+    end
+    
 end
