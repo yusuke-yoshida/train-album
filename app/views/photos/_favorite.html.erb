@@ -1,4 +1,4 @@
 <%= link_to "" , favorites_path(photo_id: photo.id) ,
-                    :class => "favorite-#{photo.id} btn btn-warning",
+                    :class => "favorite-#{photo.id} btn btn-favorite btn-warning",
                     :remote => true,
                     :method => :post %>

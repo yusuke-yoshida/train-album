@@ -3,12 +3,12 @@
         <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_n.jpg" %>>
         <div id="flickr_search">
             <% if current_user.favoriting? photo %>
-                <%= link_to "おきにいりをやめる" , favorite_path( current_user.favorites.find_by(:photo_id => photo.id) , photo_id: photo.id ) ,
+                <%= link_to "おきにいりをやめる" , favorite_path( current_user.favorites.find_by(:flickr_id => photo.id) , flickr_id: photo.id ) ,
                         :class => "favorite-#{photo.id} btn btn-favorite btn-default",
                         :remote => true,
                         :method => :delete %>
             <% else %>
-                <%= link_to "おきにいり" , favorites_path(photo_id: photo.id) ,
+                <%= link_to "おきにいり" , favorites_path(flickr_id: photo.id) ,
                         :class => "favorite-#{photo.id} btn btn-favorite btn-warning",
                         :remote => true,
                         :method => :post %>

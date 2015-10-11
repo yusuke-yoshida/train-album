@@ -2,8 +2,8 @@ class FavoritesController < ApplicationController
     before_action :logged_in_user
     
     def create
-        if params[:id]
-            @photo = Photo.find_or_initialize_by(id: params[:id])
+        if params[:flickr_id]
+            @photo = Photo.find_or_initialize_by(flickr_id: params[:flickr_id])
         else
             @photo = Photo.find(params[:photo_id])
         end
@@ -11,11 +11,12 @@ class FavoritesController < ApplicationController
         # photosテーブルに存在しない場合はFlickrのデータを登録する。
         if @photo.new_record?
             
-            @photo.flickr_id = photo.id
-            @photo.title = photo.title
-            @photo.link_url = "http://www.flickr.com/photos/#{photo.owner}/#{photo.id}"
-            @photo.thumbnail_url = "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_n.jpg"
-            @photo.original_url = "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_o.jpg"
+            @photo_info = flickr.photos.getInfo(:photo_id => params[:flickr_id])
+            @photo.flickr_id = @photo_info.id
+            @photo.title = @photo_info.title
+            @photo.link_url = FlickRaw.url_photopage(@photo_info)
+            @photo.thumbnail_url = FlickRaw.url_n(@photo_info)
+            @photo.original_url = FlickRaw.url_o(@photo_info)
             @photo.save!
         end
         
