@@ -1,2 +1,2 @@
-$(".favorite-<%= @photo.id %>").replaceWith("<%= escape_javascript(render('photos/unfavorite' , photo: @photo)) %>");
+$(".favorite-<%= @photo.flickr_id %>").replaceWith("<%= escape_javascript(render('photos/unfavorite' , photo: @photo)) %>");
 $('.btn-favorite').removeAttr('disabled');

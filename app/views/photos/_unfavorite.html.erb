@@ -1,4 +1,4 @@
-<%= link_to "" , favorite_path( current_user.favorites.find_by(:photo_id => photo.id) , photo_id: photo.id ) ,
-                    :class => "favorite-#{photo.id} btn btn-favorite btn-default",
+<%= link_to "おきにいりをやめる" , favorite_path( current_user.favorites.find_by(:photo_id => photo.id) , photo_id: photo.id ) ,
+                    :class => "btn btn-favorite favorite-#{photo.id} btn-default",
                     :remote => true,
                     :method => :delete %>
