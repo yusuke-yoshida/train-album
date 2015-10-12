@@ -1,6 +1,8 @@
-<h1>カテゴリ作成</h1>
-<%= form_for(@category) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit "カテゴリ作成", class: "btn btn-large btn-danger" %>
-<% end %>
+<div class="center">
+    <h1>カテゴリ作成</h1>
+    <%= form_for(@category) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.submit "カテゴリ作成", class: "btn btn-large btn-danger" %>
+    <% end %>
+</div>

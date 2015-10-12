@@ -1,5 +1,7 @@
-<h1>ぼくのでんしゃアルバム</h1>
-<p>
-    <%= link_to "写真をさがす", new_photo_path, class: "btn btn-primary" %>
-</p>
-<%= render 'photos/list', photos: @photos %>
+<div class="center">
+    <h1>ぼくのでんしゃアルバム</h1>
+    <p>
+        <%= link_to "写真をさがす", new_photo_path, class: "btn btn-primary" %>
+    </p>
+    <%= render 'photos/list', photos: @photos %>
+</div>

@@ -1,5 +1,5 @@
 <% @photos.each do |photo| %>
-    <div>
+    <div class="center">
         <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_n.jpg" %>>
         <div class="action">
             <% if current_user.favoriting? photo %>
