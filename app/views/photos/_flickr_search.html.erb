@@ -1,6 +1,6 @@
 <% @photos.each do |photo| %>
     <div class="center">
-        <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_n.jpg" %>>
+        <img src=<%= "http://farm#{photo.farm}.static.flickr.com/#{photo.server}/#{photo.id}_#{photo.secret}_z.jpg" %>>
         <div class="action">
             <% if current_user.favoriting? photo %>
                 <%= link_to "おきにいりをやめる" , favorite_path( current_user.favorites.find_by(:flickr_id => photo.id) , flickr_id: photo.id ) ,

@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
             @photo.flickr_id = @photo_info.id
             @photo.title = @photo_info.title
             @photo.link_url = FlickRaw.url_photopage(@photo_info)
-            @photo.thumbnail_url = FlickRaw.url_n(@photo_info)
+            @photo.thumbnail_url = FlickRaw.url_z(@photo_info)
             @photo.original_url = FlickRaw.url_o(@photo_info)
             @photo.save!
         end
